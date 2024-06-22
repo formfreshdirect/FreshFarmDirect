@@ -132,5 +132,8 @@
       }
     }
   },
-  "defaultProject": "Freshform_Direct.API"
+  "defaultProject": "Freshform_Direct.API",
+  "cli": {
+    "analytics": false
+  }
 }
