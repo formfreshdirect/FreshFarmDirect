@@ -1,0 +1,62 @@
+
+
+/* src/app/auth/retailer-registration/retailer-registration.component.css */
+
+.registration-container {
+    background: url('/assets/farmer-1822530_1280.jpg') no-repeat center center;
+    background-size: cover;
+    padding: 50px 0;
+    min-height: 100vh; /* Adjust height as needed */
+  }
+  
+  .registration-card {
+    background-color: rgba(255, 255, 255, 0.5); /* semi-transparent background */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* optional: add a subtle shadow */
+  }
+  
+  /* .card-header {
+    background-color: transparent;
+    border-bottom: none;
+  } */
+  .card-header {
+    background-color: #4caf50;
+    color: white;
+    text-align: center;
+    
+  }
+  
+  .card-title {
+    margin-bottom: 0;
+  }
+  
+  .form-group {
+    margin-bottom: 20px;
+  }
+  
+  .invalid-feedback {
+    color: #dc3545;
+    font-size: 80%;
+  }
+  
+  .btn-lg {
+    padding: 10px 30px; /* Adjust button padding */
+    width: 100%; /* Make button full width */
+  }
+  
+  @media (max-width: 576px) {
+    .registration-card {
+      padding: 20px;
+    }
+  }
+
+  .transparent-input {
+    background-color: rgba(255, 255, 255, 0.5); /* transparent background */
+    border: 1px solid #ced4da; /* optional: add a border for better visibility */
+  }
+  
+  .transparent-input:focus {
+    background-color: rgba(255, 255, 255, 0.5); /* adjust focus background color if needed */
+  }
+
+
+
