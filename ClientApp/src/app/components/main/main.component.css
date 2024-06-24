@@ -1,0 +1,46 @@
+/* main.component.scss */
+
+.sidenav-container {
+    height: 100vh;
+    display: flex;
+  }
+  
+  .sidenav {
+    width: 250px;
+    background: #37474f; /* Dark blue-grey */
+    color: #fff; /* White text */
+  }
+  
+  .sidenav-toolbar {
+    background: #263238; /* Dark teal */
+  }
+  
+  .top-toolbar {
+    background: #263238; /* Dark teal */
+    border-top: 4px solid #00796b; /* Teal accent color */
+  }
+  
+  .mat-toolbar.mat-primary {
+    background: #263238; /* Dark teal */
+  }
+  
+  .content {
+    padding: 20px;
+    background: #fff;
+    height: calc(100vh - 64px); /* Adjust according to the toolbar height */
+  }
+  
+  .sidenav-list {
+    padding-top: 20px;
+  }
+  
+  .mat-expansion-panel-header {
+    background-color: #455a64; /* Blue-grey */
+    color: #fff; /* White text */
+    font-weight: bold;
+  }
+  
+  .mat-expansion-panel-header.mat-expanded {
+    background-color: #546e7a; /* Slightly lighter blue-grey */
+  }
+  

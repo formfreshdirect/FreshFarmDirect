@@ -1,0 +1,35 @@
+.container {
+    margin-top: 20px;
+    background: url('/assets/farmerRegistrationCover.jpg') no-repeat center center;
+  }
+  
+  .card-header {
+    background-color: #4caf50;
+    color: white;
+    text-align: center;
+  }
+  
+  .card {
+    margin: 20px 0;
+    background-color: rgba(255, 255, 255, 0.5); /* semi-transparent background */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* optional: add a subtle shadow */
+  }
+  
+  .text-danger {
+    margin-top: 5px;
+    font-size: 0.875rem;
+  }
+  
+  button {
+    margin-top: 20px;
+  }
+  
+  .transparent-input {
+    background-color: rgba(255, 255, 255, 0.5); /* transparent background */
+    border: 1px solid #ced4da; /* optional: add a border for better visibility */
+  }
+  
+  .transparent-input:focus {
+    background-color: rgba(255, 255, 255, 0.5); /* adjust focus background color if needed */
+  }
+
