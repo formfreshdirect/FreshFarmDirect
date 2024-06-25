@@ -1,0 +1,33 @@
+.product-add-card {
+  max-width: 800px;
+  margin: 20px auto;
+  padding: 20px;
+}
+
+.product-add-toolbar {
+  margin-bottom: 20px;
+}
+
+.form-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.full-width {
+  width: 100%;
+  margin-bottom: 16px;
+}
+
+.half-width {
+  width: 48%;
+  margin-bottom: 16px;
+}
+
+.file-upload {
+  margin-bottom: 16px;
+}
+
+.button-group {
+  display: flex;
+  justify-content: space-between;
+}
