@@ -13,7 +13,10 @@ export class ProductListComponent implements OnInit {
     { id: 1, name: 'Tomatoes', category: 'Vegetables', price: 2.5, quantity: 100, image: 'assets/tomato.jpg' },
     { id: 2, name: 'Apples', category: 'Fruits', price: 3, quantity: 150, image: 'assets/apples.jpg' },
     { id: 3, name: 'Milk', category: 'Dairy', price: 1.5, quantity: 200, image: 'assets/milk.jpg' },
-    { id: 4, name: 'Bread', category: 'Grains', price: 2, quantity: 80, image: 'assets/bread.jpg' }
+    { id: 4, name: 'Bread', category: 'Grains', price: 2, quantity: 80, image: 'assets/bread.jpg' },
+    { id: 5, name: 'Bread', category: 'Grains', price: 2, quantity: 80, image: 'assets/bread.jpg' },
+    { id: 6, name: 'Bread', category: 'Grains', price: 2, quantity: 80, image: 'assets/bread.jpg' },
+    { id: 7, name: 'Bread', category: 'Grains', price: 2, quantity: 80, image: 'assets/bread.jpg' }
   ];
 
   constructor(private fb: FormBuilder) {

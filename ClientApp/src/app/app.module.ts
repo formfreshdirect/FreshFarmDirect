@@ -32,6 +32,8 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
 import { MatTreeModule } from '@angular/material/tree';
+import { MatTableModule } from '@angular/material/table';
+import { MatSelectModule } from '@angular/material/select';
 @NgModule({
   declarations: [
     AppComponent,
@@ -70,7 +72,10 @@ import { MatTreeModule } from '@angular/material/tree';
     MatButtonModule,
     MatIconModule,
     MatListModule,
-    MatTreeModule
+    MatTreeModule,
+    MatTableModule,
+    MatSelectModule
+
   ],
   providers: [],
   bootstrap: [AppComponent],

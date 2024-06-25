@@ -1,0 +1,30 @@
+.order-management-container {
+  height: 100vh;
+}
+
+.order-list-toolbar {
+  display: flex;
+  align-items: center;
+}
+
+.status-filter {
+  margin-left: auto;
+}
+
+.order-list-container {
+  padding: 16px;
+}
+
+.order-table {
+  width: 100%;
+}
+
+.mat-dialog-content {
+  margin-top: 0; /* Adjust as needed */
+  padding: 16px;
+}
+
+.mat-list-item {
+  border-bottom: 1px solid #e0e0e0;
+  padding: 8px 0;
+}
