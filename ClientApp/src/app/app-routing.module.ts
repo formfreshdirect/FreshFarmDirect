@@ -6,6 +6,7 @@ import { RetailerRegistrationComponent } from './components/Retailer/retailer-re
 import { FarmerRegistrationComponent } from './components/farmer/farmer-registration/farmer-registration.component';
 import { MainComponent } from './components/main/main.component';
 import { AddProductComponent } from './components/product-management/add-product/add-product.component';
+import { ProductListComponent } from './components/product-management/product-list/product-list.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent, pathMatch: 'full' },
@@ -13,6 +14,7 @@ const routes: Routes = [
   { path: 'farmer', component: FarmerRegistrationComponent},
   { path: 'main', component: MainComponent },
   { path: 'addProduct', component: AddProductComponent },
+  { path: 'addProductlist', component: ProductListComponent },
 ];
 
 @NgModule({

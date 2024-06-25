@@ -9,36 +9,48 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 export class AddProductComponent implements OnInit {
 
   productForm!: FormGroup;
-  categories = ['Vegetables', 'Fruits', 'Dairy', 'Grains', 'Meat', 'Others'];
+  categories = ['Fruits', 'Vegetables', 'Dairy'];
+  imagePreviews: string[] = [];
 
-  constructor(private fb: FormBuilder) { }
-
-  ngOnInit(): void {
+  constructor(private fb: FormBuilder) {
     this.productForm = this.fb.group({
       productName: ['', Validators.required],
       category: ['', Validators.required],
       description: ['', Validators.required],
-      price: ['', [Validators.required, Validators.min(0.01)]],
-      quantity: ['', [Validators.required, Validators.min(1)]]
+      price: ['', Validators.required],
+      quantity: ['', Validators.required],
+      sku: ['', Validators.required],
+      supplier: ['', Validators.required]
     });
   }
+    ngOnInit(): void {
+        throw new Error('Method not implemented.');
+    }
 
-  onSubmit(): void {
-    if (this.productForm.valid) {
-      // Handle form submission logic here
-      console.log(this.productForm.value);
+  onFileSelected(event: any) {
+    if (event.target.files) {
+      this.imagePreviews = [];
+      for (let file of event.target.files) {
+        const reader = new FileReader();
+        reader.onload = (e: any) => {
+          this.imagePreviews.push(e.target.result);
+        };
+        reader.readAsDataURL(file);
+      }
     }
   }
 
-  onCancel(): void {
-    // Handle form cancellation logic here
-    this.productForm.reset();
+  onSubmit() {
+    if (this.productForm.valid) {
+      console.log('Product added:', this.productForm.value);
+    }
   }
 
-  onFileSelected(event: any): void {
-    const files = event.target.files;
-    // Handle file selection logic here
-    console.log(files);
+  onCancel() {
+    this.productForm.reset();
+  }
+  removeImage(index: number) {
+    this.imagePreviews.splice(index, 1);
   }
 
 }

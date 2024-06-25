@@ -1,1 +1,77 @@
-<p>product-list works!</p>
+
+
+<mat-sidenav-container class="example-container" autosize>
+  <mat-sidenav-content>
+    <div class="content-container">
+
+      <mat-card class="search-filter-card">
+        <mat-toolbar color="primary" class="search-filter-toolbar">
+          <h2>Search and Filters</h2>
+        </mat-toolbar>
+
+        <form [formGroup]="searchForm" (ngSubmit)="onSearch()">
+          <div class="search-filter-container">
+            <mat-form-field class="full-width">
+              <mat-label>Search Products</mat-label>
+              <input matInput formControlName="searchQuery">
+            </mat-form-field>
+
+            <mat-form-field class="full-width">
+              <mat-label>Category</mat-label>
+              <mat-select formControlName="category">
+                <mat-option value="">All Categories</mat-option>
+                <mat-option *ngFor="let category of products" [value]="category">
+                  {{ category }}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+
+            <mat-form-field class="full-width">
+              <mat-label>Price Range</mat-label>
+              <mat-slider formControlName="priceRange"
+                          thumbLabel
+                          tickInterval="10"
+                          [min]="0"
+                          [max]="1000"
+                          [step]="10"></mat-slider>
+            </mat-form-field>
+
+            <div class="button-group">
+              <button mat-raised-button color="primary" type="submit">Search</button>
+              <button mat-raised-button color="warn" type="button" (click)="onReset()">Reset</button>
+            </div>
+          </div>
+        </form>
+      </mat-card>
+
+      <mat-card class="product-list-card">
+        <mat-toolbar color="primary" class="product-list-toolbar">
+          <h1>Product List</h1>
+          <button mat-raised-button color="accent" (click)="navigateToAddProduct()" style="margin-left: auto;">
+            Add New Product
+          </button>
+        </mat-toolbar>
+
+        <div class="product-list-container">
+          <mat-grid-list cols="4" rowHeight="1:1" gutterSize="16px">
+            <mat-grid-tile *ngFor="let product of products">
+              <mat-card class="product-card">
+                <img mat-card-image [src]="product.image" alt="{{product.name}}" class="product-image">
+                <mat-card-content>
+                  <h2>{{product.name}}</h2>
+                  <p>Category: {{product.category}}</p>
+                  <p>Price: {{product.price | currency}}</p>
+                  <p>Quantity: {{product.quantity}}</p>
+                </mat-card-content>
+                <mat-card-actions>
+                  <button mat-button color="primary" (click)="editProduct(product)">Edit</button>
+                  <button mat-button color="warn" (click)="deleteProduct(product.id)">Delete</button>
+                </mat-card-actions>
+              </mat-card>
+            </mat-grid-tile>
+          </mat-grid-list>
+        </div>
+      </mat-card>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>
