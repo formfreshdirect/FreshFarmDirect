@@ -1,0 +1,11 @@
+<mat-card>
+  <mat-toolbar color="primary">
+    <h2>Select Theme</h2>
+  </mat-toolbar>
+  <mat-form-field appearance="fill">
+    <mat-label>Theme</mat-label>
+    <mat-select (selectionChange)="onThemeChange($event.value)">
+      <mat-option *ngFor="let theme of themeNames" [value]="theme">{{ theme }}</mat-option>
+    </mat-select>
+  </mat-form-field>
+</mat-card>

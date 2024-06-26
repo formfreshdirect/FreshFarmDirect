@@ -1,46 +1,102 @@
 /* main.component.scss */
+.example-container {
+  height: 100vh; /* Full viewport height */
+  display: flex;
 
-.sidenav-container {
-    height: 100vh;
-    display: flex;
+}
+
+.example-sidenav {
+  width: 250px;
+/*  background-color: #3F51B5;*/
+  transition: transform 0.3s ease, width 0.3s ease;
+  height: 100%; /* Full height */
+}
+
+.example-sidenav-content {
+  flex: 1;
+  margin-left: 250px;
+  transition: margin-left 0.3s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.mat-expansion-panel {
+  /*background-color: #3F51B5 !important;*/
+  color: white;
+}
+
+.mat-expansion-panel-header {
+  color: white;
+}
+
+.mat-list-item {
+  color: white;
+  cursor: pointer;
+}
+
+  .mat-list-item:hover {
+    background-color: rgba(255, 255, 255, 0.1);
   }
-  
-  .sidenav {
-    width: 250px;
-    background: #37474f; /* Dark blue-grey */
-    color: #fff; /* White text */
+
+  .mat-list-item mat-icon {
+    margin-right: 10px;
   }
-  
-  .sidenav-toolbar {
-    background: #263238; /* Dark teal */
+
+.mat-expansion-panel-header.mat-expanded {
+  background-color: #303F9F !important;
+}
+
+@media (max-width: 768px) {
+  .example-sidenav {
+    width: 100%;
   }
-  
-  .top-toolbar {
-    background: #263238; /* Dark teal */
-    border-top: 4px solid #00796b; /* Teal accent color */
+
+  .example-sidenav-content {
+    margin-left: 0;
   }
-  
-  .mat-toolbar.mat-primary {
-    background: #263238; /* Dark teal */
+
+  .example-container .mat-sidenav {
+    position: absolute;
+    width: 100%;
   }
-  
-  .content {
-    padding: 20px;
-    background: #fff;
-    height: calc(100vh - 64px); /* Adjust according to the toolbar height */
+}
+
+@media (min-width: 769px) {
+  .example-sidenav-content {
+    margin-left: 250px;
   }
-  
-  .sidenav-list {
-    padding-top: 20px;
+
+  .example-container .mat-sidenav {
+    position: relative;
   }
-  
-  .mat-expansion-panel-header {
-    background-color: #455a64; /* Blue-grey */
-    color: #fff; /* White text */
-    font-weight: bold;
+}
+/* main.component.scss */
+.example-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 16px; /* Adjust padding as needed */
+    background-color: #4CAF50; /* Change this color to your desired color */
+  color: white;
+
+}
+
+.example-app-name {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-left: 16px; /* Adjust margin as needed */
+}
+
+.example-spacer {
+  flex: 1; /* This pushes the logout button to the far right */
+}
+
+.example-toolbar button {
+  min-width: auto; /* Ensures buttons are not too wide */
+}
+
+@media (max-width: 768px) {
+  .example-app-name {
+    display: none; /* Hide the application name on smaller screens if necessary */
   }
-  
-  .mat-expansion-panel-header.mat-expanded {
-    background-color: #546e7a; /* Slightly lighter blue-grey */
-  }
-  
+}

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-product-list',
@@ -23,7 +23,7 @@ export class ProductListComponent implements OnInit {
     this.searchForm = this.fb.group({
       searchQuery: [''],
       category: [''],
-      priceRange: [1000]
+      priceRange: [0]
     });
   }
 

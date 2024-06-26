@@ -3,8 +3,8 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-add-product',
-  templateUrl: './add-product.component.html',
-  styleUrls: ['./add-product.component.css']
+  templateUrl: './add-product.component.html', // Adjust this path as per your actual file structure
+  styleUrls: ['./add-product.component.css'] // Optional: Adjust the stylesheet path if needed
 })
 export class AddProductComponent implements OnInit {
 
@@ -24,7 +24,7 @@ export class AddProductComponent implements OnInit {
     });
   }
     ngOnInit(): void {
-        throw new Error('Method not implemented.');
+     
     }
 
   onFileSelected(event: any) {

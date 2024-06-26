@@ -1,8 +1,8 @@
 .product-add-card {
-  margin: 20px auto;
   max-width: 800px;
+  margin: 0 auto;
   padding: 20px;
-  border-radius: 8px;
+  box-sizing: border-box;
 }
 
 .product-add-toolbar {
@@ -25,47 +25,46 @@
 }
 
 .half-width {
-  width: calc(50% - 10px);
-  margin-right: 10px;
+  width: calc(50% - 10px); /* Adjust width to create a gap between columns */
+  margin-right: 20px; /* Adjust margin between columns */
 }
 
-.half-width:last-child {
-  margin-right: 0;
-}
+  .half-width:last-child {
+    margin-right: 0;
+  }
 
 .file-upload {
-  display: flex;
-  flex-direction: column;
+  margin-top: 10px;
 }
 
 .image-preview {
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
-  margin-bottom: 20px;
+  margin-top: 10px;
+}
 
-  .image-container {
-    position: relative;
-    display: inline-block;
-    img {
-      width: 100px;
-      height: 100px;
-      object-fit: cover;
-      border-radius: 8px;
-      border: 1px solid #ccc;
-    }
+.image-container {
+  position: relative;
+}
 
-    .remove-button {
-      position: absolute;
-      top: 5px;
-      right: 5px;
-      background: rgba(255, 255, 255, 0.7);
-      border-radius: 50%;
-    }
+  .image-container img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border: 1px solid #ccc;
+    border-radius: 4px;
   }
+
+.remove-button {
+  position: absolute;
+  top: 2px;
+  right: 2px;
+  background-color: rgba(255, 255, 255, 0.7);
 }
 
 .button-group {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end;
+  gap: 10px;
 }

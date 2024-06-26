@@ -34,6 +34,11 @@ import { MatListModule } from '@angular/material/list';
 import { MatTreeModule } from '@angular/material/tree';
 import { MatTableModule } from '@angular/material/table';
 import { MatSelectModule } from '@angular/material/select';
+import { MatExpansionModule } from '@angular/material/expansion';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatSliderModule } from '@angular/material/slider';
+import { SettingsComponent } from './components/settings/settings.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -57,6 +62,7 @@ import { MatSelectModule } from '@angular/material/select';
     MarketTrendsComponent,
     PerformanceReportsComponent,
     MainComponent,
+    SettingsComponent,
     
   ],
   imports: [
@@ -74,7 +80,11 @@ import { MatSelectModule } from '@angular/material/select';
     MatListModule,
     MatTreeModule,
     MatTableModule,
-    MatSelectModule
+    MatExpansionModule,
+    MatSelectModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatSliderModule
 
   ],
   providers: [],
