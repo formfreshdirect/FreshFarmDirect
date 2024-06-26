@@ -43,7 +43,7 @@
   }
 
 .mat-expansion-panel-header.mat-expanded {
-  background-color: #303F9F !important;
+ /* background-color: #303F9F !important;*/
 }
 
 @media (max-width: 768px) {
