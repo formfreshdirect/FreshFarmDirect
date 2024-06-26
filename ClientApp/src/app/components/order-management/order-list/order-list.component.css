@@ -1,30 +1,52 @@
-.order-management-container {
-  height: 100vh;
+.content-container {
+  padding: 20px;
+}
+
+.order-list-card {
+  margin-bottom: 20px;
+  width: calc(100% - 40px); 
+  overflow: hidden; 
 }
 
 .order-list-toolbar {
   display: flex;
+  justify-content: space-between;
   align-items: center;
 }
 
 .status-filter {
-  margin-left: auto;
+  width: 200px;
 }
 
 .order-list-container {
-  padding: 16px;
+  margin-top: 20px;
+  overflow-x: auto; 
 }
 
 .order-table {
-  width: 100%;
+  width: 100%; 
 }
 
-.mat-dialog-content {
-  margin-top: 0; /* Adjust as needed */
-  padding: 16px;
+mat-list-item {
+  padding-bottom: 10px;
 }
 
-.mat-list-item {
-  border-bottom: 1px solid #e0e0e0;
-  padding: 8px 0;
+mat-dialog-content {
+  padding: 20px;
+}
+.example-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center content horizontally */
+  padding: 16px; /* Adjust padding as needed */
+}
+
+.order-list-card {
+  width: 100%; /* Ensure the card takes full width */
+  overflow-x: auto; /* Enable horizontal scrolling if necessary */
+}
+
+.order-table {
+  width: 100%; /* Make the table fill the entire width of its container */
+  min-width: 1000px; /* Set a minimum width to prevent collapsing */
 }

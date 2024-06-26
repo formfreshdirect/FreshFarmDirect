@@ -1,0 +1,15 @@
+<div class="account-settings">
+  <h2>Account Settings</h2>
+  <form [formGroup]="accountForm" (ngSubmit)="updateAccount()">
+    <mat-form-field class="full-width">
+      <input matInput formControlName="username" placeholder="Username">
+      <mat-error *ngIf="accountForm.get('username')?.invalid">Username is required.</mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="full-width">
+      <input matInput formControlName="email" placeholder="Email">
+      <mat-error *ngIf="accountForm.get('email')?.invalid">Enter a valid email.</mat-error>
+    </mat-form-field>
+    <button mat-raised-button color="primary" type="submit">Save Changes</button>
+  </form>
+</div>

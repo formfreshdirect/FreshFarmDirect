@@ -1,0 +1,15 @@
+.order-management-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.order-list {
+  padding-right: 20px;
+}
+
+.order-details {
+}
+
+mat-card {
+  margin-bottom: 20px;
+}

@@ -28,7 +28,7 @@ export interface Order {
 export class OrderListComponent implements OnInit {
   filteredOrders: Order[] = [];
   selectedOrder: Order | null = null;
-  orderStatuses: string[] = ['Pending', 'Shipped', 'Delivered', 'Cancelled'];
+  orderStatuses: string[] = ['Approved','Pending', 'Shipped', 'Delivered', 'Cancelled'];
   selectedStatus: any;
   displayedColumns: string[] = ['orderId', 'customerName', 'productName', 'quantity', 'price', 'status', 'actions'];
 
@@ -51,6 +51,36 @@ export class OrderListComponent implements OnInit {
     },
     {
       id: 2,
+      orderNumber: 'ORD002',
+      customerName: 'Jane Smith',
+      productName: 'Fresh Tomatoes',
+      quantity: 15,
+      price: 30.00,
+      status: 'Approved',
+      retailerName: 'xyz',
+      date: new Date('2024-06-26'),
+      products: [
+        { id: 1, name: 'Apple', quantity: 10, price: 5.00 },
+        { id: 2, name: 'Orange', quantity: 5, price: 3.00 }
+      ]
+    },
+    {
+      id: 3,
+      orderNumber: 'ORD002',
+      customerName: 'Jane Smith',
+      productName: 'Fresh Tomatoes',
+      quantity: 15,
+      price: 30.00,
+      status: 'Approved',
+      retailerName: 'xyz',
+      date: new Date('2024-06-26'),
+      products: [
+        { id: 1, name: 'Apple', quantity: 10, price: 5.00 },
+        { id: 2, name: 'Orange', quantity: 5, price: 3.00 }
+      ]
+    },
+    {
+      id: 4,
       orderNumber: 'ORD002',
       customerName: 'Jane Smith',
       productName: 'Fresh Tomatoes',

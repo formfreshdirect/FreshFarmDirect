@@ -18,7 +18,7 @@ export class SettingsComponent implements OnInit {
     'Sunset Glow',
     'Winter Frost', 'Spring Blossom', 'Golden Fields', 'Midnight Sky', 'Crimson Sunset',
     'Lavender Dreams', 'Silver Moon', 'Emerald Isle', 'Cherry Blossom', 'Azure Sky', 'Tropical Paradise', 'Amber Waves',
-
+    'Festival Lights',
   'Mountain Mist'];
 
   onThemeChange(themeName: string) {

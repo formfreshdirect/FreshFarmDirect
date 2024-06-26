@@ -39,6 +39,9 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatSliderModule } from '@angular/material/slider';
 import { SettingsComponent } from './components/settings/settings.component';
+import { MatMenuModule } from '@angular/material/menu';
+import { AccountSettingsComponent } from './components/settings/account-settings.component';
+import { FarmerProfileComponent } from './components/profile/farmer-profile/farmer-profile.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -63,6 +66,8 @@ import { SettingsComponent } from './components/settings/settings.component';
     PerformanceReportsComponent,
     MainComponent,
     SettingsComponent,
+    AccountSettingsComponent,
+    FarmerProfileComponent,
     
   ],
   imports: [
@@ -84,7 +89,8 @@ import { SettingsComponent } from './components/settings/settings.component';
     MatSelectModule,
     MatFormFieldModule,
     MatInputModule,
-    MatSliderModule
+    MatSliderModule,
+    MatMenuModule
 
   ],
   providers: [],

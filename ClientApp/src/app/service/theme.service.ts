@@ -123,6 +123,91 @@ export class ThemeService {
       backgroundColor: '#FF7E00',
       textColor: '#FFFFFF',
       accentColor: '#FFD700'
+    },
+    'Ocean Breeze': {
+      backgroundColor: '#000080',
+      textColor: '#FFFFFF',
+      accentColor: '#00FFFF'
+    },
+    'Desert Sands': {
+      backgroundColor: '#F4A460',
+      textColor: '#8B4513',
+      accentColor: '#FFDEAD'
+    },
+    'Snowy Peaks': {
+      backgroundColor: '#FFFAFA',
+      textColor: '#191970',
+      accentColor: '#E0FFFF'
+    },
+    'City Lights': {
+      backgroundColor: '#000000',
+      textColor: '#FFFFFF',
+      accentColor: '#7DF9FF'
+    },
+    'Spring Blossoms': {
+      backgroundColor: '#FFB7C5',
+      textColor: '#00FF00',
+      accentColor: '#FFFAFA'
+    },
+    'Vintage Wine': {
+      backgroundColor: '#800020',
+      textColor: '#FFD700',
+      accentColor: '#6C2E1F'
+    },
+    'Starlit Night': {
+      backgroundColor: '#2C3E50',
+      textColor: '#F0F3F4',
+      accentColor: '#D5DBDB'
+    },
+    'Harvest Fields': {
+      backgroundColor: '#F5DEB3',
+      textColor: '#DAA520',
+      accentColor: '#D2691E'
+    },
+    'Space Odyssey': {
+      backgroundColor: '#000000',
+      textColor: '#F0F8FF',
+      accentColor: '#002147'
+    },
+    'Jungle Adventure': {
+      backgroundColor: '#17806D',
+      textColor: '#6B4423',
+      accentColor: '#29AB87'
+    },
+    'Zen Garden': {
+      backgroundColor: '#D2D1C9',
+      textColor: '#6B8E23',
+      accentColor: '#A1CAF1'
+    },
+    'Fire and Ice': {
+      backgroundColor: '#FF2400',
+      textColor: '#87CEEB',
+      accentColor: '#FFFFFF'
+    },
+    'Summer Sunset': {
+      backgroundColor: '#FD5E53',
+      textColor: '#F6F6F6',
+      accentColor: '#47ABCC'
+    },
+    'Mystic Forest': {
+      backgroundColor: '#228B22',
+      textColor: '#E6E6FA',
+      accentColor: '#B0C4DE'
+    },
+    'Digital Matrix': {
+      backgroundColor: '#101010',
+      textColor: '#00FF00',
+      accentColor: '#1E90FF'
+    },
+    'Festival Lights': {
+      backgroundColor: '#FF4500',
+      textColor: '#FDFDFD',
+      accentColor: '#FFD700'
+    },
+    'Aurora Borealis': {
+      backgroundColor: '#39FF14',
+      textColor: '#E0FFFF',
+      accentColor: '#00BFFF'
     }
   }
   private themeSubject = new BehaviorSubject<Theme>(this.themes['Azure Sky']);

@@ -14,7 +14,7 @@
 
 .example-sidenav-content {
   flex: 1;
-  margin-left: 250px;
+  margin-left: 100px;
   transition: margin-left 0.3s ease;
   display: flex;
   flex-direction: column;
@@ -61,15 +61,15 @@
   }
 }
 
-@media (min-width: 769px) {
-  .example-sidenav-content {
-    margin-left: 250px;
-  }
+/*@media (min-width: 769px) {
+  .example-sidenav-content {*/
+/*    margin-left: 250px;*/
+  /*}
 
   .example-container .mat-sidenav {
     position: relative;
   }
-}
+}*/
 /* main.component.scss */
 .example-toolbar {
   display: flex;
@@ -99,4 +99,25 @@
   .example-app-name {
     display: none; /* Hide the application name on smaller screens if necessary */
   }
+}
+.profile-photo {
+  width: 40px; /* Adjust the width as per your design */
+  height: 40px; /* Adjust the height as per your design */
+  border-radius: 50%; /* Makes the image round */
+  margin-right: 10px; /* Adds space between the profile photo and logout button */
+  object-fit: cover; /* Ensures the image covers the entire space */
+}
+
+.profile-section {
+  display: flex;
+  align-items: center;
+  margin-right: 10px; 
+}
+
+.user-name {
+  margin-right: 10px; 
+}
+.user-greeting {
+  margin-right: 10px; 
+  font-weight: bold; 
 }

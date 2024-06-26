@@ -19,6 +19,8 @@ export class MainComponent implements OnInit {
   isExpanded: boolean = true;
   panelOpenState = false;
   currentTheme: any;
+  userName: string | undefined;
+  greeting = '';
   constructor(private themeService: ThemeService) { }
 
 
@@ -26,6 +28,8 @@ export class MainComponent implements OnInit {
     this.themeService.theme$.subscribe(theme => {
       this.currentTheme = theme;
     });
+    this.userName = this.getUsername();
+    this.setGreeting();
   }
   filtermenu: MenuItem[] = [
     {
@@ -46,8 +50,8 @@ export class MainComponent implements OnInit {
       displayName: 'Orders',
       iconName: 'receipt',
       children: [
-        { displayName: 'Order List', iconName: 'list_alt', route: '/orders/list' },
-        { displayName: 'Order Tracking', iconName: 'track_changes', route: '/orders/tracking' }
+        { displayName: 'Order List', iconName: 'list_alt', route: '/main/orderList' },
+        { displayName: 'Order Tracking', iconName: 'track_changes', route: '/main/orderDetails' }
       ]
     },
     {
@@ -65,6 +69,18 @@ export class MainComponent implements OnInit {
   ];
 
   logOut() {
-    // Implement logout logic
+  }
+  getUsername(): string {
+    return 'Mahesh';
+  }
+  setGreeting() {
+    const time = new Date().getHours();
+    if (time >= 5 && time < 12) {
+      this.greeting = 'Good morning';
+    } else if (time >= 12 && time < 18) {
+      this.greeting = 'Good afternoon';
+    } else {
+      this.greeting = 'Good evening';
+    }
   }
 }

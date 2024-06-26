@@ -1,15 +1,23 @@
-<!-- main.component.html -->
-<mat-toolbar color="primary" [ngStyle]="{'background-color': currentTheme?.accentColor, 'color': currentTheme?.textColor}"  class="example-toolbar">
+<mat-toolbar color="primary" [ngStyle]="{'background-color': currentTheme?.accentColor, 'color': currentTheme?.textColor}" class="example-toolbar">
   <button mat-icon-button (click)="sidenav.toggle()">
     <mat-icon>menu</mat-icon>
   </button>
   <span class="example-app-name">FarmFresh Direct</span>
-  <span class="example-spacer"></span> <!-- This will push the logout button to the right -->
-  <button mat-icon-button (click)="logOut()">
-    <mat-icon>power_settings_new</mat-icon>
-  </button>
+  <span class="example-spacer"></span>
+  <div class="profile-section">
+    <span class="user-greeting">Hello {{ userName }} {{ greeting  }},</span>
+    <img src="/assets/profile.jpg" alt="Profile Photo" class="profile-photo">
+    <mat-menu #profileMenu="matMenu">
+      <button mat-menu-item [routerLink]="'/main/pProfile'">Profile</button>
+      <button mat-menu-item [routerLink]="'/main/accountsettings'">Account Settings</button>
+      <button mat-menu-item (click)="logOut()">Logout</button>
+    </mat-menu>
+    <button mat-icon-button [matMenuTriggerFor]="profileMenu">
+      <!--<mat-icon>account_circle</mat-icon>-->
+      <mat-icon>power_settings_new</mat-icon>
+    </button>
+  </div>
 </mat-toolbar>
-
 
 <mat-sidenav-container class="example-container">
   <mat-sidenav #sidenav mode="side" [ngStyle]="{'background-color': currentTheme?.backgroundColor, 'color': currentTheme?.textColor}" [opened]="isExpanded" class="example-sidenav">
