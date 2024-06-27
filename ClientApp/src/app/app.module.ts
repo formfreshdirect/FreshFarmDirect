@@ -42,6 +42,7 @@ import { SettingsComponent } from './components/settings/settings.component';
 import { MatMenuModule } from '@angular/material/menu';
 import { AccountSettingsComponent } from './components/settings/account-settings.component';
 import { FarmerProfileComponent } from './components/profile/farmer-profile/farmer-profile.component';
+import { MatCheckboxModule } from '@angular/material/checkbox';
 @NgModule({
   declarations: [
     AppComponent,
@@ -90,7 +91,8 @@ import { FarmerProfileComponent } from './components/profile/farmer-profile/farm
     MatFormFieldModule,
     MatInputModule,
     MatSliderModule,
-    MatMenuModule
+    MatMenuModule,
+    MatCheckboxModule
 
   ],
   providers: [],

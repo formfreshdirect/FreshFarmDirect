@@ -11,33 +11,54 @@ export class AddProductComponent implements OnInit {
   productForm!: FormGroup;
   categories = ['Fruits', 'Vegetables', 'Dairy'];
   imagePreviews: string[] = [];
-
+  imagePreview!: string | ArrayBuffer | null;
   constructor(private fb: FormBuilder) {
-    this.productForm = this.fb.group({
-      productName: ['', Validators.required],
-      category: ['', Validators.required],
-      description: ['', Validators.required],
-      price: ['', Validators.required],
-      quantity: ['', Validators.required],
-      sku: ['', Validators.required],
-      supplier: ['', Validators.required]
-    });
+   
   }
-    ngOnInit(): void {
-     
-    }
+
+      ngOnInit(): void {
+        this.productForm = this.fb.group({
+          productName: ['', Validators.required],
+          sku: ['', Validators.required],
+          category: ['', Validators.required],
+          description: ['', Validators.required],
+          price: [0, Validators.required],
+          quantityAvailable: [0, Validators.required],
+          unitOfMeasure: [''],
+          farmerName: ['', Validators.required],
+          farmName: ['', Validators.required],
+          location: ['', Validators.required],
+          harvestDate: ['', Validators.required],
+          expirationDate: [''],
+          organicCertification: [false],
+          packagingType: ['', Validators.required],
+          shippingDetails: [''],
+          nutritionalInformation: [''],
+          tags: [''],
+          image: [null]
+        });
+        this.imagePreview = null;
+      }
 
   onFileSelected(event: any) {
     if (event.target.files) {
-      this.imagePreviews = [];
-      for (let file of event.target.files) {
-        const reader = new FileReader();
-        reader.onload = (e: any) => {
-          this.imagePreviews.push(e.target.result);
-        };
-        reader.readAsDataURL(file);
+      const file: File = event.target.files[0];
+      if (file) {
+        this.productForm.patchValue({ image: file });
+        this.previewImage(file);
       }
     }
+  }
+  previewImage(file: File): void {
+    const reader = new FileReader();
+    reader.readAsDataURL(file);
+    reader.onload = () => {
+      this.imagePreview = reader.result;
+    };
+  }
+  clearImagePreview(): void {
+    this.productForm.patchValue({ image: null });
+    this.imagePreview = null;
   }
 
   onSubmit() {
@@ -46,6 +67,9 @@ export class AddProductComponent implements OnInit {
     }
   }
 
+  cancel() {
+    console.log('Cancelled');
+  }
   onCancel() {
     this.productForm.reset();
   }

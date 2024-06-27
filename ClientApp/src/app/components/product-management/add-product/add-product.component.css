@@ -1,70 +1,35 @@
-.product-add-card {
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 20px;
-  box-sizing: border-box;
-}
-
-.product-add-toolbar {
-  margin-bottom: 20px;
-}
-
-.form-container {
+.container {
   display: flex;
-  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
 }
 
-.row {
+.form-card {
+  width: 100%;
+  max-width: 800px;
+  margin: 20px;
+}
+
+.form-content {
   display: flex;
   flex-wrap: wrap;
+}
+
+.form-row {
+  display: flex;
+  justify-content: space-between;
+  width: calc(100% - 20px);
   margin-bottom: 20px;
 }
 
-.full-width {
-  width: 100%;
+.form-field {
+  width: calc(32% - 10px);
 }
 
-.half-width {
-  width: calc(50% - 10px); /* Adjust width to create a gap between columns */
-  margin-right: 20px; /* Adjust margin between columns */
-}
-
-  .half-width:last-child {
+@media (max-width: 768px) {
+  .form-field {
+    width: 100%;
     margin-right: 0;
   }
-
-.file-upload {
-  margin-top: 10px;
-}
-
-.image-preview {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  margin-top: 10px;
-}
-
-.image-container {
-  position: relative;
-}
-
-  .image-container img {
-    width: 100px;
-    height: 100px;
-    object-fit: cover;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-  }
-
-.remove-button {
-  position: absolute;
-  top: 2px;
-  right: 2px;
-  background-color: rgba(255, 255, 255, 0.7);
-}
-
-.button-group {
-  display: flex;
-  justify-content: flex-end;
-  gap: 10px;
 }

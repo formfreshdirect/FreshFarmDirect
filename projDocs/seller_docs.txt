@@ -1,0 +1,326 @@
+Basic Product Information
+Product Name: The name of the product.
+SKU (Stock Keeping Unit): A unique identifier for the product.
+Category: The category or type of the product (e.g., vegetables, fruits, dairy).
+Description: A detailed description of the product.
+Pricing and Quantity
+Price: The price per unit of the product.
+Quantity Available: The amount of product available for sale.
+Unit of Measure: The unit of measurement for the product (e.g., kg, lb, unit).
+Farmer Information
+Farmer Name: The name of the farmer supplying the product.
+Farm Name: The name of the farm where the product is produced.
+Location: The location of the farm.
+Product Details
+Harvest Date: The date the product was harvested.
+Expiration Date: The date the product will expire (if applicable).
+Organic Certification: Indicates if the product is certified organic (yes/no).
+Images and Media
+Product Images: Upload images of the product.
+Videos: Upload videos related to the product (optional).
+Additional Information
+Packaging Type: The type of packaging used for the product.
+Shipping Details: Information about how the product will be shipped.
+Nutritional Information: Details about the nutritional content of the product (if applicable).
+
+ Categories Table
+
+CREATE TABLE Categories (
+    category_id INT IDENTITY(1,1) PRIMARY KEY,
+    category_name VARCHAR(255) NOT NULL UNIQUE,
+    created_at DATETIME DEFAULT GETDATE()
+);
+
+Products Table
+--------------
+-- Create Products Table
+CREATE TABLE Products (
+    product_id INT IDENTITY(1,1) PRIMARY KEY,
+    product_name VARCHAR(255) NOT NULL,
+    sku VARCHAR(100) NOT NULL UNIQUE,
+    category_id INT NOT NULL,
+    description TEXT NOT NULL,
+    price DECIMAL(10, 2) NOT NULL,
+    quantity_available INT NOT NULL,
+    unit_of_measure VARCHAR(50) NOT NULL,
+    farmer_name VARCHAR(255) NOT NULL,
+    farm_name VARCHAR(255) NOT NULL,
+    location VARCHAR(255) NOT NULL,
+    harvest_date DATE NOT NULL,
+    expiration_date DATE,
+    organic_certification BIT DEFAULT 0,
+    packaging_type VARCHAR(255) NOT NULL,
+    shipping_details TEXT,
+    nutritional_information TEXT,
+    tags TEXT,
+    created_at DATETIME DEFAULT GETDATE(),
+    FOREIGN KEY (category_id) REFERENCES Categories(category_id)
+);
+
+
+
+
+
+CREATE TABLE Categories (
+    category_id INT IDENTITY(1,1) PRIMARY KEY,
+    category_name VARCHAR(255) NOT NULL UNIQUE,
+    created_at DATETIME DEFAULT GETDATE()
+);
+INSERT INTO Categories (category_name) VALUES ('Vegetables');
+INSERT INTO Categories (category_name) VALUES ('Fruits');
+INSERT INTO Categories (category_name) VALUES ('Dairy');
+INSERT INTO Categories (category_name) VALUES ('Bakery');
+INSERT INTO Categories (category_name) VALUES ('Beverages');
+INSERT INTO Categories (category_name) VALUES ('Canned Goods');
+INSERT INTO Categories (category_name) VALUES ('Condiments');
+INSERT INTO Categories (category_name) VALUES ('Frozen Foods');
+INSERT INTO Categories (category_name) VALUES ('Grains');
+INSERT INTO Categories (category_name) VALUES ('Herbs');
+INSERT INTO Categories (category_name) VALUES ('Meat');
+INSERT INTO Categories (category_name) VALUES ('Pasta');
+INSERT INTO Categories (category_name) VALUES ('Personal Care');
+INSERT INTO Categories (category_name) VALUES ('Seafood');
+INSERT INTO Categories (category_name) VALUES ('Snacks');
+INSERT INTO Categories (category_name) VALUES ('Spices');
+INSERT INTO Categories (category_name) VALUES ('Sweets');
+INSERT INTO Categories (category_name) VALUES ('Deli');
+INSERT INTO Categories (category_name) VALUES ('Prepared Foods');
+INSERT INTO Categories (category_name) VALUES ('Pet Supplies');
+INSERT INTO Categories (category_name) VALUES ('Household Supplies');
+INSERT INTO Categories (category_name) VALUES ('Baby Products');
+INSERT INTO Categories (category_name) VALUES ('Organic');
+
+ALTER TABLE Products
+ADD product_image VARBINARY(MAX)
+
+select * from Categories
+UPDATE Categories
+SET is_active = 1;
+
+
+
+-- Create Products Table
+CREATE TABLE Products (
+    product_id INT IDENTITY(1,1) PRIMARY KEY,
+    product_name VARCHAR(255) NOT NULL,
+    sku VARCHAR(100) NOT NULL UNIQUE,
+    category_id INT NOT NULL,
+    description TEXT NOT NULL,
+    price DECIMAL(10, 2) NOT NULL,
+    quantity_available INT NOT NULL,
+    unit_of_measure VARCHAR(50) NOT NULL,
+    farmer_name VARCHAR(255) NOT NULL,
+    farm_name VARCHAR(255) NOT NULL,
+    location VARCHAR(255) NOT NULL,
+    harvest_date DATE NOT NULL,
+    expiration_date DATE,
+    organic_certification BIT DEFAULT 0,
+    packaging_type VARCHAR(255) NOT NULL,
+    shipping_details TEXT,
+    nutritional_information TEXT,
+    tags TEXT,
+    created_at DATETIME DEFAULT GETDATE(),
+    FOREIGN KEY (category_id) REFERENCES Categories(category_id)
+);
+INSERT INTO Products (product_name, sku, category_id, description, price, quantity_available, unit_of_measure, farmer_name, farm_name, location, harvest_date, expiration_date, organic_certification, packaging_type, shipping_details, nutritional_information, tags)
+VALUES 
+('Tomatoes', 'TOM-001', 1, 'Fresh, ripe tomatoes', 2.50, 100, 'kg', 'John Doe', 'Doe Farms', 'California', '2024-06-27', NULL, 1, 'Bulk', 'Ships within 2 days', 'High in vitamin C', 'vegetables, fresh'),
+('Apples', 'APP-001', 2, 'Crisp red apples', 1.75, 200, 'kg', 'Jane Smith', 'Smith Orchards', 'New York', '2024-06-28', NULL, 1, 'Boxed', 'Free shipping over $50', 'Organic and pesticide-free', 'fruits, organic'),
+('Milk', 'MLK-001', 3, 'Whole milk', 3.00, 50, 'L', 'Farm Fresh Dairy', 'Farm Fresh Dairy', 'Wisconsin', '2024-06-25', '2024-07-05', 0, 'Carton', 'Refrigerated transport required', 'Rich in calcium', 'dairy, calcium'),
+('Bread', 'BRD-001', 4, 'Freshly baked bread', 4.50, 30, 'unit', 'Bakery Delights', 'Bakery Delights', 'Texas', '2024-06-26', NULL, 1, 'Packaged', 'Local delivery available', 'Low-fat and nutritious', 'bakery, fresh');
+
+select * from Products
+
+
+ALTER TABLE Products
+ADD product_image VARBINARY(MAX)
+
+CREATE TABLE Sellers (
+    seller_id INT IDENTITY(1,1) PRIMARY KEY,
+    seller_name VARCHAR(255) NOT NULL,
+    contact_email VARCHAR(255) NOT NULL,
+    address VARCHAR(255) NOT NULL,
+    registration_date DATE NOT NULL DEFAULT GETDATE(),
+    phone_number VARCHAR(20),
+    website_url VARCHAR(255),
+    company_name VARCHAR(255),
+    tax_id VARCHAR(20),
+    additional_info TEXT,
+    verified bit DEFAULT 0,
+    account_status VARCHAR(20) DEFAULT 'Active'
+    -- Add more fields as needed
+);
+
+drop table Products
+
+
+CREATE TABLE Products (
+    product_id INT IDENTITY(1,1) PRIMARY KEY,
+    product_name VARCHAR(255) NOT NULL,
+    sku VARCHAR(100) NOT NULL UNIQUE,
+    category_id INT NOT NULL,
+    description TEXT NOT NULL,
+    price DECIMAL(10, 2) NOT NULL,
+    quantity_available INT NOT NULL,
+    unit_of_measure VARCHAR(50) NOT NULL,
+    farmer_name VARCHAR(255) NOT NULL,
+    farm_name VARCHAR(255) NOT NULL,
+    location VARCHAR(255) NOT NULL,
+    harvest_date DATE NOT NULL,
+    expiration_date DATE,
+    organic_certification BIT DEFAULT 0,
+    packaging_type VARCHAR(255) NOT NULL,
+    shipping_details TEXT,
+    nutritional_information TEXT,
+    tags TEXT,
+    product_image VARBINARY(MAX),
+    seller_id INT NOT NULL,
+    created_at DATETIME DEFAULT GETDATE(),
+    FOREIGN KEY (category_id) REFERENCES Categories(category_id),
+    FOREIGN KEY (seller_id) REFERENCES Sellers(seller_id)
+);
+
+
+-- Insert Sample Seller Data with Additional Fields
+INSERT INTO Sellers (seller_name, contact_email, address, registration_date, phone_number, website_url, company_name, tax_id, additional_info, verified, account_status)
+VALUES 
+('Fresh Harvest Farms', 'info@freshharvestfarms.com', '789 Farm Lane, Ruralville, USA', '2024-04-10', '+1-555-555-1234', 'http://www.freshharvestfarms.com', 'Fresh Harvest Farms LLC', '9876543210', 'Organic farming practices. Specializes in seasonal vegetables and fruits.', 1, 'Active'),
+('Artisan Bakers Co.', 'contact@artisanbakersco.com', '321 Baker Street, Citytown, USA', '2024-05-20', '+1-555-555-5678', 'http://www.artisanbakersco.com', 'Artisan Bakers Co.', '1234567890', 'Known for handcrafted breads and pastries. Family-owned business.', 1, 'Active'),
+('Green Leaf Gardens', 'sales@greenleafgardens.com', '456 Greenway Ave, Naturetown, USA', '2024-03-15', '+1-555-555-9876', 'http://www.greenleafgardens.com', 'Green Leaf Gardens Inc.', '5555555555', 'Specializes in organic herbs and spices. Supplies to local restaurants.', 0, 'Pending Verification');
+
+-- Add more seller data as needed
+-- Create the Inventory table
+CREATE TABLE Inventory (
+    inventory_id INT IDENTITY(1,1) PRIMARY KEY,
+    item_name VARCHAR(255) NOT NULL,
+    description TEXT,
+    price DECIMAL(10,2) NOT NULL,
+    category_id INT,
+    FOREIGN KEY (category_id) REFERENCES Categories(category_id)
+);
+
+-- Inserting items into the Inventory table
+INSERT INTO Inventory (item_name, description, price, category_id)
+VALUES ('Apple', 'Fresh and juicy apple', 1.99, 1);
+
+INSERT INTO Inventory (item_name, description, price, category_id)
+VALUES ('Orange', 'Sweet and tangy orange', 2.49, 1);
+
+INSERT INTO Inventory (item_name, description, price, category_id)
+VALUES ('Carrot', 'Organic carrots', 0.99, 2);
+
+INSERT INTO Inventory (item_name, description, price, category_id)
+VALUES ('Potato', 'Fresh potatoes', 1.49, 2);
+
+-- Continuing insertion of items into the Inventory table
+INSERT INTO Inventory (item_name, description, price, category_id)
+VALUES 
+    ('Book', 'Bestseller novel', 12.99, 36),
+    ('Magazine', 'Monthly magazine', 4.49, 36),
+    ('Newspaper', 'Daily newspaper', 2.99, 36),
+    ('Vacuum Cleaner', 'Robotic vacuum cleaner', 299.99, 37),
+    ('Mop', 'Microfiber mop', 19.99, 37),
+    ('Broom', 'Angled broom', 12.49, 37),
+    ('Screwdriver Set', 'Precision screwdriver set', 9.99, 38),
+    ('Hammer', 'Claw hammer', 14.99, 38),
+    ('Tape Measure', 'Retractable tape measure', 8.49, 38),
+    ('Camping Tent', 'Waterproof camping tent', 89.99, 39),
+    ('Sleeping Bag', 'Lightweight sleeping bag', 49.99, 39),
+    ('Flashlight', 'Compact LED flashlight', 6.99, 39),
+    ('Fishing Rod', 'Fishing rod and reel combo', 39.99, 40),
+    ('Tackle Box', 'Fishing tackle box', 19.99, 40),
+    ('Lures', 'Assorted fishing lures', 8.99, 40),
+    ('Golf Clubs', 'Golf club set', 199.99, 41),
+    ('Golf Balls', 'Pack of golf balls', 14.99, 41),
+    ('Golf Bag', 'Golf cart bag', 129.99, 41),
+    ('Bicycle', 'Mountain bike', 299.99, 42),
+    ('Helmet', 'Cycling helmet', 49.99, 42),
+    ('Bike Lock', 'Heavy-duty bike lock', 19.99, 42),
+    ('Skateboard', 'Classic skateboard', 49.99, 43),
+    ('Roller Skates', 'Quad roller skates', 69.99, 43),
+    ('Helmet', 'Skateboarding helmet', 29.99, 43),
+    ('Snowboard', 'Freestyle snowboard', 199.99, 44),
+    ('Ski Boots', 'Alpine ski boots', 129.99, 44),
+    ('Goggles', 'Snow goggles', 39.99, 44),
+    ('Swimsuit', 'Women\'s one-piece swimsuit', 29.99, 45),
+    ('Flip Flops', 'Beach flip flops', 9.99, 45),
+    ('Sun Hat', 'Wide-brim sun hat', 12.99, 45),
+    ('Tent', 'Pop-up beach tent', 49.99, 46),
+    ('Beach Chair', 'Folding beach chair', 24.99, 46),
+    ('Cooler', 'Insulated beach cooler', 34.99, 46),
+    ('Barbecue Grill', 'Portable barbecue grill', 79.99, 47),
+    ('Grilling Tools', 'Stainless steel grilling tools', 19.99, 47),
+    ('Charcoal', 'Natural charcoal briquettes', 9.99, 47),
+    ('Sunglasses', 'Polarized sunglasses', 19.99, 48),
+    ('Hat', 'Wide-brim straw hat', 14.99, 48),
+    ('Sunscreen', 'SPF 50 sunscreen', 7.99, 48),
+    ('Gym Bag', 'Sports gym bag', 29.99, 49),
+    ('Water Bottle', 'Insulated water bottle', 17.99, 49),
+    ('Towel', 'Quick-dry gym towel', 12.99, 49),
+    ('Dumbbell Set', 'Adjustable dumbbell set', 149.99, 50),
+    ('Yoga Mat', 'Extra thick yoga mat', 29.99, 50),
+    ('Resistance Bands', 'Fitness resistance bands set', 19.99, 50),
+    ('Protein Powder', 'Whey protein powder', 29.99, 51),
+    ('Vitamins', 'Multivitamin supplements', 14.99, 51),
+    ('Energy Bars', 'Protein energy bars', 9.99, 51),
+    ('Backpack', 'Hiking backpack', 79.99, 52),
+    ('Tent', 'Backpacking tent', 149.99, 52),
+    ('Sleeping Bag', 'Down sleeping bag', 99.99, 52),
+    ('Binoculars', 'Compact binoculars', 39.99, 53),
+    ('Compass', 'Waterproof compass', 12.99, 53),
+    ('Hiking Boots', 'Waterproof hiking boots', 89.99, 53),
+    ('Digital Camera', 'Mirrorless digital camera', 599.99, 54),
+    ('Tripod', 'Portable camera tripod', 49.99, 54),
+    ('Camera Bag', 'DSLR camera bag', 39.99, 54),
+    ('Laptop', 'Thin and light laptop', 899.99, 55),
+    ('Mouse', 'Wireless mouse', 29.99, 55),
+    ('Backpack', 'Laptop backpack', 49.99, 55),
+    ('External Hard Drive', 'Portable external hard drive', 129.99, 56),
+    ('USB Flash Drive', 'High-speed USB flash drive', 19.99, 56),
+    ('Wireless Keyboard', 'Bluetooth wireless keyboard', 59.99, 56),
+    ('Smartphone', 'Latest smartphone', 999.99, 57),
+    ('Tablet', '10-inch tablet', 299.99, 57),
+    ('Smartwatch', 'Smartwatch with GPS', 199.99, 57),
+    ('Headphones', 'Noise-cancelling headphones', 249.99, 58),
+    ('Bluetooth Speaker', 'Waterproof Bluetooth speaker', 79.99, 58),
+    ('Wireless Earbuds', 'True wireless earbuds', 129.99, 58),
+    ('Television', 'Smart LED TV', 799.99, 59),
+    ('Soundbar', 'Soundbar with subwoofer', 299.99, 59),
+    ('Streaming Device', 'Streaming media player', 49.99, 59),
+    ('Vacuum Cleaner', 'Upright vacuum cleaner', 199.99, 60),
+    ('Robot Vacuum', 'Smart robot vacuum', 349.99, 60),
+    ('Carpet Cleaner', 'Portable carpet cleaner', 149.99, 60),
+    ('Toolbox', 'Heavy-duty toolbox', 49.99, 61),
+    ('Power Drill', 'Cordless power drill', 129.99, 61),
+    ('Work Gloves', 'Leather work gloves', 14.99, 61),
+    ('Paint Brushes', 'Assorted paint brushes', 19.99, 62),
+    ('Paint Rollers', 'Paint roller kit', 12.99, 62),
+    ('Drop Cloth', 'Canvas drop cloth', 9.99, 62),
+    ('Wall Clock', 'Modern wall clock', 24.99, 63),
+    ('Picture Frame', 'Wooden picture frame', 17.99, 63),
+    ('Art Print', 'Canvas art print', 39.99, 63),
+    ('Pillow', 'Memory foam pillow', 29.99, 64),
+    ('Bed Sheets', 'Egyptian cotton bed sheets', 79.99, 64),
+    ('Comforter', 'Down alternative comforter', 59.99, 64),
+    ('Throw Blanket', 'Knit throw blanket', 19.99, 65),
+    ('Curtains', 'Blackout curtains', 39.99, 65),
+    ('Rug', 'Shag area rug', 89.99, 65),
+    ('Dining Table', 'Extendable dining table', 399.99, 66),
+    ('Dining Chairs', 'Set of 4 dining chairs', 199.99, 66),
+    ('Bar Stools', 'Adjustable bar stools', 79.99, 66),
+    ('Sofa', '3-seater fabric sofa', 699.99, 67),
+    ('Coffee Table', 'Wood coffee table', 149.99, 67),
+    ('TV Stand', 'Media TV stand', 249.99, 67),
+    ('Bookshelf', '5-shelf bookcase', 119.99, 68),
+    ('Desk', 'Computer desk', 179.99, 68),
+    ('Office Chair', 'Ergonomic office chair', 249.99, 68),
+    ('Outdoor Table', 'Round outdoor table', 129.99, 69),
+    ('Outdoor Chairs', 'Stackable outdoor chairs', 49.99, 69),
+    ('Outdoor Umbrella', 'Patio umbrella', 79.99, 69),
+    ('Garden Bench', 'Metal garden bench', 149.99, 70),
+    ('Garden Statue', 'Decor
+
+
+
+
+
