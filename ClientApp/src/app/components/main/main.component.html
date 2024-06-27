@@ -1,0 +1,52 @@
+<mat-toolbar color="primary" [ngStyle]="{'background-color': currentTheme?.accentColor, 'color': currentTheme?.textColor}" class="example-toolbar">
+  <button mat-icon-button (click)="sidenav.toggle()">
+    <mat-icon>menu</mat-icon>
+  </button>
+  <span class="example-app-name">FarmFresh Direct</span>
+  <span class="example-spacer"></span>
+  <div class="profile-section">
+    <span class="user-greeting">Hello {{ userName }} {{ greeting  }},</span>
+    <img src="/assets/profile.jpg" alt="Profile Photo" class="profile-photo">
+    <mat-menu #profileMenu="matMenu">
+      <button mat-menu-item [routerLink]="'/main/pProfile'">Profile</button>
+      <button mat-menu-item [routerLink]="'/main/accountsettings'">Account Settings</button>
+      <button mat-menu-item (click)="logOut()">Logout</button>
+    </mat-menu>
+    <button mat-icon-button [matMenuTriggerFor]="profileMenu">
+      <!--<mat-icon>account_circle</mat-icon>-->
+      <mat-icon>power_settings_new</mat-icon>
+    </button>
+  </div>
+</mat-toolbar>
+
+<mat-sidenav-container class="example-container">
+  <mat-sidenav #sidenav mode="side" [ngStyle]="{'background-color': currentTheme?.backgroundColor, 'color': currentTheme?.textColor}" [opened]="isExpanded" class="example-sidenav">
+    <mat-nav-list >
+      <ng-container *ngFor="let item of filtermenu">
+        <mat-expansion-panel [ngStyle]="{'background-color': currentTheme?.backgroundColor, 'color': currentTheme?.textColor}"  (opened)="panelOpenState = true"  (closed)="panelOpenState = false">
+          <mat-expansion-panel-header [ngStyle]="{'background-color': currentTheme?.backgroundColor, 'color': currentTheme?.textColor}">
+            <mat-panel-title>
+              <div fxLayout="row" fxLayoutAlign="space-between center">
+                <span>
+                  <mat-icon>{{item.iconName}}</mat-icon>
+                  <span>{{item.displayName}}</span>
+                </span>
+              </div>
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+          <ng-container *ngFor="let child of item.children">
+            <mat-list-item [routerLink]="[child.route]">
+              <div fxLayout="row" fxLayoutAlign="space-between center">
+                <mat-icon>{{child.iconName}}</mat-icon>
+                <span [ngStyle]="{'color': currentTheme?.textColor}">{{child.displayName}}</span> 
+              </div>
+            </mat-list-item>
+          </ng-container>
+        </mat-expansion-panel>
+      </ng-container>
+    </mat-nav-list>
+  </mat-sidenav>
+  <div class="example-sidenav-content">
+    <router-outlet></router-outlet>
+  </div>
+</mat-sidenav-container>

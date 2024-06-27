@@ -1,0 +1,123 @@
+/* main.component.scss */
+.example-container {
+  height: 100vh; /* Full viewport height */
+  display: flex;
+
+}
+
+.example-sidenav {
+  width: 250px;
+/*  background-color: #3F51B5;*/
+  transition: transform 0.3s ease, width 0.3s ease;
+  height: 100%; /* Full height */
+}
+
+.example-sidenav-content {
+  flex: 1;
+  margin-left: 100px;
+  transition: margin-left 0.3s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.mat-expansion-panel {
+  /*background-color: #3F51B5 !important;*/
+  color: white;
+}
+
+.mat-expansion-panel-header {
+  color: white;
+}
+
+.mat-list-item {
+  color: white;
+  cursor: pointer;
+}
+
+  .mat-list-item:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+
+  .mat-list-item mat-icon {
+    margin-right: 10px;
+  }
+
+.mat-expansion-panel-header.mat-expanded {
+ /* background-color: #303F9F !important;*/
+}
+
+@media (max-width: 768px) {
+  .example-sidenav {
+    width: 100%;
+  }
+
+  .example-sidenav-content {
+    margin-left: 0;
+  }
+
+  .example-container .mat-sidenav {
+    position: absolute;
+    width: 100%;
+  }
+}
+
+/*@media (min-width: 769px) {
+  .example-sidenav-content {*/
+/*    margin-left: 250px;*/
+  /*}
+
+  .example-container .mat-sidenav {
+    position: relative;
+  }
+}*/
+/* main.component.scss */
+.example-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 16px; /* Adjust padding as needed */
+    background-color: #4CAF50; /* Change this color to your desired color */
+  color: white;
+
+}
+
+.example-app-name {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-left: 16px; /* Adjust margin as needed */
+}
+
+.example-spacer {
+  flex: 1; /* This pushes the logout button to the far right */
+}
+
+.example-toolbar button {
+  min-width: auto; /* Ensures buttons are not too wide */
+}
+
+@media (max-width: 768px) {
+  .example-app-name {
+    display: none; /* Hide the application name on smaller screens if necessary */
+  }
+}
+.profile-photo {
+  width: 40px; /* Adjust the width as per your design */
+  height: 40px; /* Adjust the height as per your design */
+  border-radius: 50%; /* Makes the image round */
+  margin-right: 10px; /* Adds space between the profile photo and logout button */
+  object-fit: cover; /* Ensures the image covers the entire space */
+}
+
+.profile-section {
+  display: flex;
+  align-items: center;
+  margin-right: 10px; 
+}
+
+.user-name {
+  margin-right: 10px; 
+}
+.user-greeting {
+  margin-right: 10px; 
+  font-weight: bold; 
+}
