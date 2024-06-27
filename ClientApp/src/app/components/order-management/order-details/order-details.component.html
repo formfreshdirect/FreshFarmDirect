@@ -1,1 +1,41 @@
-<p>order-details works!</p>
+
+<div class="order-management-container">
+  <div class="order-list">
+    <mat-card *ngFor="let order of orders">
+      <mat-card-header>
+        <mat-card-title>Order ID: {{ order.id }}</mat-card-title>
+        <mat-card-subtitle>Retailer: {{ order.retailerName }}</mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-content>
+        <p><strong>Status:</strong> {{ order.status }}</p>
+        <p><strong>Order Date:</strong> {{ order.date | date }}</p>
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-button color="primary" (click)="viewOrderDetails(order.id)">View Details</button>
+        <button mat-button color="accent" *ngIf="order.status === 'Pending'" (click)="processOrder(order.id)">Process</button>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+
+  <div class="order-details" *ngIf="selectedOrder">
+    <mat-card>
+      <mat-card-header>
+        <mat-card-title>Order Details - ID: {{ selectedOrder.id }}</mat-card-title>
+        <mat-card-subtitle>Retailer: {{ selectedOrder.retailerName }}</mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-content>
+        <p><strong>Status:</strong> {{ selectedOrder.status }}</p>
+        <p><strong>Order Date:</strong> {{ selectedOrder.date | date }}</p>
+        <mat-divider></mat-divider>
+        <h3>Products</h3>
+        <mat-list>
+          <mat-list-item *ngFor="let product of selectedOrder.products">
+            <h4 mat-line>{{ product.name }}</h4>
+            <p mat-line>Quantity: {{ product.quantity }}</p>
+            <p mat-line>Price: {{ product.price | currency }}</p>
+          </mat-list-item>
+        </mat-list>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>

@@ -1,0 +1,136 @@
+.example-toolbar {
+  display: flex;
+  align-items: center;
+}
+
+.example-app-name {
+  flex-grow: 1;
+}
+
+.example-container {
+  height: 100vh;
+}
+
+.product-list-card {
+  margin: 20px;
+}
+
+.product-list-toolbar {
+  display: flex;
+  align-items: center;
+}
+
+.product-list-container {
+  padding: 16px;
+}
+
+.product-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.product-image {
+  object-fit: cover;
+  width: 160px;
+  height: 160px;
+}
+
+.mat-card-content h2 {
+  margin-top: 10px;
+}
+
+.mat-card-actions {
+  justify-content: space-between;
+}
+
+@media (max-width: 960px) {
+  .product-list-container {
+    padding: 8px;
+  }
+
+  .product-card .product-image {
+    height: 150px; /* Adjust height for smaller screens */
+  }
+
+  .product-list-toolbar button {
+    margin: 0;
+  }
+}
+
+@media (max-width: 600px) {
+  mat-grid-list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .product-card .product-image {
+    height: 120px; /* Adjust height for mobile screens */
+  }
+}
+
+
+
+.search-filter-card,
+.product-list-card {
+  margin: 20px;
+}
+
+.search-filter-toolbar,
+.product-list-toolbar {
+  display: flex;
+  align-items: center;
+}
+
+.search-filter-container,
+.product-list-container {
+  padding: 16px;
+}
+
+.search-filter-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.full-width {
+  flex: 1 1 100%;
+}
+
+.button-group {
+  display: flex;
+  gap: 16px;
+}
+
+.product-tile {
+  border-bottom: 1px solid #E0E0E0; /* Light gray line */
+  margin-bottom: 16px; /* Space between the products */
+  padding-bottom: 16px;
+}
+.product-divider {
+  border: none;
+  height: 1px;
+  background-color: #4682B4; /* Accent color */
+  margin: 10px 0;
+}
+.product-image {
+  border: 2px solid #B0C4DE; 
+  border-radius: 8px; 
+  padding: 4px; 
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
+}
+.popup {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.9);
+  padding: 10px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  z-index: 10;
+  display: none;
+}
+
+.product-card:hover .popup {
+  display: block;
+}

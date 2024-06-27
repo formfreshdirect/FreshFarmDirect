@@ -1,10 +1,10 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { NestedTreeControl } from '@angular/cdk/tree';
-import { MatTreeNestedDataSource } from '@angular/material/tree';
 import { MatSidenav } from '@angular/material/sidenav';
+import { ThemeService } from '../../service/theme.service';
 
 interface MenuItem {
-  name: string;
+  displayName: string;
+  iconName?: string;
   route?: string;
   children?: MenuItem[];
 }
@@ -15,40 +15,72 @@ interface MenuItem {
   styleUrls: ['./main.component.css']
 })
 export class MainComponent implements OnInit {
-
-  constructor() {
-  }
+  @ViewChild('sidenav') sidenav!: MatSidenav;
+  isExpanded: boolean = true;
+  panelOpenState = false;
+  currentTheme: any;
+  userName: string | undefined;
+  greeting = '';
+  constructor(private themeService: ThemeService) { }
 
 
   ngOnInit(): void {
+    this.themeService.theme$.subscribe(theme => {
+      this.currentTheme = theme;
+    });
+    this.userName = this.getUsername();
+    this.setGreeting();
   }
-  menuItems: MenuItem[] = [
+  filtermenu: MenuItem[] = [
     {
-      name: 'Dashboard',
-      route: '/dashboard',
+      displayName: 'Dashboard',
+      iconName: 'dashboard',
+      route: '/dashboard'
     },
     {
-      name: 'Products',
+      displayName: 'Products',
+      iconName: 'shopping_cart',
       children: [
-        { name: 'Product List', route: '/products/list' },
-        { name: 'Add Product', route: '/products/add' },
-        { name: 'Edit Product', route: '/products/edit' },
+        { displayName: 'Product List', iconName: 'list', route: '/main/productList' },
+        { displayName: 'Add Product', iconName: 'add', route: '/main/addProduct' },
+        { displayName: 'Edit Product', iconName: 'edit', route: '/products/edit' },
       ]
     },
     {
-      name: 'Orders',
+      displayName: 'Orders',
+      iconName: 'receipt',
       children: [
-        { name: 'Order List', route: '/orders/list' },
-        { name: 'Order Tracking', route: '/orders/tracking' }
+        { displayName: 'Order List', iconName: 'list_alt', route: '/main/orderList' },
+        { displayName: 'Order Tracking', iconName: 'track_changes', route: '/main/orderDetails' }
       ]
     },
     {
-      name: 'Analytics',
-      route: '/analytics',
+      displayName: 'Analytics',
+      iconName: 'analytics',
+      route: '/analytics'
     },
     {
-      name: 'Settings',
-      route: '/settings',
+      displayName: 'Setting',
+      iconName: 'settings',
+      children: [
+        { displayName: 'Order List', iconName: 'list_alt', route: '/main/settings' },
+      ]
     }
   ];
+
+  logOut() {
+  }
+  getUsername(): string {
+    return 'Mahesh';
+  }
+  setGreeting() {
+    const time = new Date().getHours();
+    if (time >= 5 && time < 12) {
+      this.greeting = 'Good morning';
+    } else if (time >= 12 && time < 18) {
+      this.greeting = 'Good afternoon';
+    } else {
+      this.greeting = 'Good evening';
+    }
+  }
 }

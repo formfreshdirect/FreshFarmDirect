@@ -1,1 +1,93 @@
-<p>order-list works!</p>
+<div class="content-container">
+  <mat-card class="order-list-card">
+    <mat-toolbar color="primary" class="order-list-toolbar">
+      <h1>Order Management</h1>
+      <mat-form-field class="status-filter">
+        <mat-label>Status</mat-label>
+        <mat-select [(value)]="selectedStatus" (selectionChange)="applyStatusFilter($event)">
+          <mat-option *ngFor="let status of orderStatuses" [value]="status">{{ status }}</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </mat-toolbar>
+
+    <div class="order-list-container">
+      <mat-table [dataSource]="filteredOrders" class="order-table">
+        <!-- Columns definition -->
+        <ng-container matColumnDef="orderId">
+          <mat-header-cell *matHeaderCellDef> Order ID </mat-header-cell>
+          <mat-cell *matCellDef="let order"> {{ order.id }} </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="customerName">
+          <mat-header-cell *matHeaderCellDef> Customer Name </mat-header-cell>
+          <mat-cell *matCellDef="let order"> {{ order.customerName }} </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="productName">
+          <mat-header-cell *matHeaderCellDef> Product Name </mat-header-cell>
+          <mat-cell *matCellDef="let order"> {{ order.productName }} </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="quantity">
+          <mat-header-cell *matHeaderCellDef> Quantity </mat-header-cell>
+          <mat-cell *matCellDef="let order"> {{ order.quantity }} </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="price">
+          <mat-header-cell *matHeaderCellDef> Price </mat-header-cell>
+          <mat-cell *matCellDef="let order"> {{ order.price | currency }} </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="retailerName">
+          <mat-header-cell *matHeaderCellDef> Retailer Name </mat-header-cell>
+          <mat-cell *matCellDef="let order"> {{ order.retailerName }} </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="orderDate">
+          <mat-header-cell *matHeaderCellDef> Order Date </mat-header-cell>
+          <mat-cell *matCellDef="let order"> {{ order.date | date }} </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="status">
+          <mat-header-cell *matHeaderCellDef> Status </mat-header-cell>
+          <mat-cell *matCellDef="let order"> {{ order.status }} </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="actions">
+          <mat-header-cell *matHeaderCellDef> Actions </mat-header-cell>
+          <mat-cell *matCellDef="let order">
+            <button mat-button color="primary" (click)="viewOrderDetails(order)">View</button>
+            <button mat-button color="warn" (click)="cancelOrder(order.id)" *ngIf="order.status !== 'Cancelled'">Cancel</button>
+          </mat-cell>
+        </ng-container>
+
+        <!-- Table rows -->
+        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+      </mat-table>
+    </div>
+  </mat-card>
+</div>
+
+<!-- Dialog for order details -->
+<mat-dialog-content>
+  <h2 mat-dialog-title>Order Details</h2>
+  <mat-dialog-content>
+    <p><strong>Order ID:</strong> {{ selectedOrder?.id }}</p>
+    <p><strong>Retailer Name:</strong> {{ selectedOrder?.retailerName }}</p>
+    <p><strong>Order Date:</strong> {{ selectedOrder?.date | date }}</p>
+    <p><strong>Status:</strong> {{ selectedOrder?.status }}</p>
+    <mat-divider></mat-divider>
+    <h3>Products</h3>
+    <mat-list>
+      <mat-list-item *ngFor="let product of selectedOrder?.products">
+        <h4 mat-line>{{ product.name }}</h4>
+        <p mat-line>Quantity: {{ product.quantity }}</p>
+        <p mat-line>Price: {{ product.price | currency }}</p>
+      </mat-list-item>
+    </mat-list>
+  </mat-dialog-content>
+  <mat-dialog-actions>
+    <button mat-button mat-dialog-close>Close</button>
+  </mat-dialog-actions>
+</mat-dialog-content>

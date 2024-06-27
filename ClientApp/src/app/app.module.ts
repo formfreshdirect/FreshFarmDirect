@@ -32,6 +32,17 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
 import { MatTreeModule } from '@angular/material/tree';
+import { MatTableModule } from '@angular/material/table';
+import { MatSelectModule } from '@angular/material/select';
+import { MatExpansionModule } from '@angular/material/expansion';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatSliderModule } from '@angular/material/slider';
+import { SettingsComponent } from './components/settings/settings.component';
+import { MatMenuModule } from '@angular/material/menu';
+import { AccountSettingsComponent } from './components/settings/account-settings.component';
+import { FarmerProfileComponent } from './components/profile/farmer-profile/farmer-profile.component';
+import { MatCheckboxModule } from '@angular/material/checkbox';
 @NgModule({
   declarations: [
     AppComponent,
@@ -55,6 +66,9 @@ import { MatTreeModule } from '@angular/material/tree';
     MarketTrendsComponent,
     PerformanceReportsComponent,
     MainComponent,
+    SettingsComponent,
+    AccountSettingsComponent,
+    FarmerProfileComponent,
     
   ],
   imports: [
@@ -70,7 +84,16 @@ import { MatTreeModule } from '@angular/material/tree';
     MatButtonModule,
     MatIconModule,
     MatListModule,
-    MatTreeModule
+    MatTreeModule,
+    MatTableModule,
+    MatExpansionModule,
+    MatSelectModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatSliderModule,
+    MatMenuModule,
+    MatCheckboxModule
+
   ],
   providers: [],
   bootstrap: [AppComponent],
